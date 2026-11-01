@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧸 
+Lunayuki0 Oficial</title>
+    <!-- === FUENTES DE GOOGLE FONTS === -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Font Awesome (iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* =============================================================
+        🎨 1. PALETA DE COLORES
+        ============================================================= */
+        :root {
+            --bg: #F3EEE8;
+            --card: #FAF7F3;
+            --text: #3A2D2A;
+            --coffee: #6B4F4F;
+            --rose: #D8A7B1;
+            --gold: #C8A46A;
+            --sage: #AAB59B;
+            --shadow: 0 12px 40px rgba(58, 45, 42, 0.06);
+            --shadow-hover: 0 24px 56px rgba(58, 45, 42, 0.10);
+            --radius: 28px;
+            --radius-sm: 16px;
+            --transition: all 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Poppins', sans-serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font-sans);
+            background-image: url('https://i.imgur.com/MfgEodR.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(243, 238, 232, 0.75);
+            backdrop-filter: blur(2px);
+            z-index: -1;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* =============================================================
+        🧭 2. NAVBAR
+        ============================================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.8rem 2.2rem;
+            background: rgba(243, 238, 232, 0.80);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            border-bottom: 1px solid rgba(200, 164, 106, 0.15);
+            transition: var(--transition);
+        }
+        .navbar.scrolled {
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+        }
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--coffee);
+            letter-spacing: -0.3px;
+        }
+        .nav-logo span {
+            color: var(--gold);
+            font-weight: 300;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .nav-links a {
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+            color: var(--text);
+        }
+        .nav-links a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* =============================================================
+        🏠 3. HERO
+        ============================================================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7rem 2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+        .hero-left {
+            flex: 1.1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        .hero-img {
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 1 / 1.1;
+            object-fit: cover;
+            border-radius: 40px 40px 40px 12px;
+            box-shadow: var(--shadow-hover);
+            border: 8px solid white;
+            transition: var(--transition);
+        }
+        .hero-img:hover {
+            transform: scale(1.01);
+        }
+        .deco {
+            position: absolute;
+            font-size: 2.6rem;
+            opacity: 0.30;
+            animation: float 7s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .deco-1 {
+            top: -12px;
+            left: -20px;
+            font-size: 3.2rem;
+        }
+        .deco-2 {
+            bottom: 12px;
+            right: -24px;
+            animation-delay: 1.4s;
+        }
+        .deco-3 {
+            top: 28%;
+            right: -32px;
+            font-size: 2.2rem;
+            animation-delay: 2.8s;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-14px) rotate(3deg);
+            }
+        }
+        .hero-right {
+            flex: 1;
+            padding: 0 0.5rem;
+        }
+        .hero-right h1 {
+            font-family: var(--font-serif);
+            font-size: 3.8rem;
+            color: var(--coffee);
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        .hero-right h1 span {
+            color: var(--gold);
+            font-weight: 300;
+        }
+        .hero-tags {
+            font-size: 1rem;
+            letter-spacing: 2.5px;
+            color: var(--rose);
+            font-weight: 500;
+            margin: 0.5rem 0 1rem;
+            opacity: 0.85;
+        }
+        .hero-desc {
+            font-size: 1.15rem;
+            max-width: 440px;
+            color: var(--coffee);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: white;
+            padding: 0.9rem 2.6rem;
+            border-radius: 60px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            transition: var(--transition);
+            box-shadow: 0 4px 18px rgba(200, 164, 106, 0.30);
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: var(--coffee);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(107, 79, 79, 0.25);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            padding: 0.9rem 2.6rem;
+            border-radius: 60px;
+            font-weight: 500;
+            border: 1.5px solid var(--rose);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            background: var(--card);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        /* =============================================================
+        🌿 4. SOBRE MÍ
+        ============================================================= */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .about-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+            box-shadow: var(--shadow-hover);
+        }
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+            text-align: left;
+        }
+        .about-text h2 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            color: var(--coffee);
+            margin-bottom: 0.5rem;
+        }
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--coffee);
+            opacity: 0.8;
+            max-width: 520px;
+            line-height: 1.8;
+        }
+        .about-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--gold);
+            flex-wrap: wrap;
+        }
+        .about-icons span {
+            background: var(--card);
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow);
+            color: var(--text);
+        }
+
+        /* =============================================================
+        ❤️ 5. COSAS QUE AMO
+        ============================================================= */
+        .loves {
+            padding: 3rem 2rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .loves h2 {
+            font-family: var(--font-serif);
+            color: var(--coffee);
+            font-size: 2.2rem;
+        }
+        .loves-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .love-card {
+            background: var(--card);
+            padding: 1.6rem 0.8rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            font-size: 2rem;
+            border: 1px solid rgba(200, 164, 106, 0.06);
+            cursor: default;
+        }
+        .love-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--rose);
+        }
+        .love-card span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--coffee);
+            opacity: 0.7;
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        /* =============================================================
+        🖼️ 6. GALERÍA MASONRY
+        ============================================================= */
+        .gallery {
+            padding: 3rem 2rem 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .gallery h2 {
+            font-family: var(--font-serif);
+            font-size: 2.6rem;
+            color: var(--coffee);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .gallery h2 span {
+            color: var(--gold);
+            font-weight: 300;
+        }
+        .masonry {
+            column-count: 4;
+            column-gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            background: var(--card);
+        }
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .masonry-item:hover {
+            box-shadow: var(--shadow-hover);
+            transform: scale(1.01);
+        }
+        .masonry-item:hover img {
+            transform: scale(1.04);
+        }
+        .masonry-cat {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* =============================================================
+        🎬 7. VIDEOS DESTACADOS
+        ============================================================= */
+        .videos {
+            padding: 3rem 2rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .videos h2 {
+            font-family: var(--font-serif);
+            color: var(--coffee);
+            font-size: 2.2rem;
+        }
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .video-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .video-thumb {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: #ddd2c5;
+            overflow: hidden;
+        }
+        .video-thumb iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+        .video-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .video-card:hover .video-thumb img {
+            transform: scale(1.06);
+        }
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(4px);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--gold);
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .video-card:hover .play-btn {
+            background: var(--gold);
+            color: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .video-info {
+            padding: 1rem 1.2rem 1.4rem;
+            text-align: left;
+        }
+        .video-info h4 {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .video-info p {
+            font-size: 0.85rem;
+            color: var(--coffee);
+            opacity: 0.7;
+        }
+
+        /* =============================================================
+        ☕ 8. MOMENTOS Y CAFÉ (COLLAGE)
+        ============================================================= */
+        .moments {
+            padding: 3rem 2rem 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .moments h2 {
+            font-family: var(--font-serif);
+            color: var(--coffee);
+            font-size: 2.2rem;
+        }
+        .collage {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 220px;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .collage-item {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .collage-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .collage-item:hover img {
+            transform: scale(1.06);
+        }
+        .collage-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .collage-item:nth-child(2) {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+        .collage-item:nth-child(3) {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(4) {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(5) {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(6) {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* =============================================================
+        🌐 9. REDES SOCIALES (TODOS TUS ENLACES ACTUALIZADOS)
+        ============================================================= */
+        .social-premium {
+            padding: 3rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .social-premium .profile-mini {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.4rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .social-premium .profile-mini img {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: var(--shadow);
+        }
+        .social-premium .profile-mini p {
+            font-size: 1.1rem;
+            color: var(--coffee);
+            opacity: 0.8;
+            max-width: 440px;
+            margin: 0;
+        }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .social-card {
+            background: var(--card);
+            padding: 1.2rem 0.8rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(200, 164, 106, 0.05);
+            text-align: center;
+            display: block;
+        }
+        .social-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--rose);
+        }
+        .social-card i {
+            font-size: 2rem;
+            margin-bottom: 0.2rem;
+            color: var(--gold);
+        }
+        .social-card span {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+        .social-card small {
+            font-size: 0.7rem;
+            color: var(--coffee);
+            opacity: 0.6;
+        }
+
+        /* =============================================================
+        📩 10. CONTACTO (CON FORMSPREE)
+        ============================================================= */
+        .contact {
+            padding: 3rem 2rem 5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contact h2 {
+            font-family: var(--font-serif);
+            color: var(--coffee);
+            font-size: 2.2rem;
+        }
+        .contact p {
+            color: var(--coffee);
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .contact input,
+        .contact textarea {
+            padding: 1rem 1.4rem;
+            border-radius: 60px;
+            border: 1.5px solid #e6dbcf;
+            background: var(--card);
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+            color: var(--text);
+            font-family: var(--font-sans);
+        }
+        .contact input:focus,
+        .contact textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(200, 164, 106, 0.12);
+        }
+        .contact textarea {
+            border-radius: 28px;
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact button {
+            background: var(--gold);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 18px rgba(200, 164, 106, 0.25);
+        }
+        .contact button:hover {
+            background: var(--coffee);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(107, 79, 79, 0.25);
+        }
+
+        /* =============================================================
+        🦶 FOOTER
+        ============================================================= */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--coffee);
+            opacity: 0.6;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(200, 164, 106, 0.10);
+            margin-top: 2rem;
+        }
+        footer a {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* =============================================================
+        📱 RESPONSIVE
+        ============================================================= */
+        @media (max-width: 1024px) {
+            .masonry {
+                column-count: 3;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 8rem;
+            }
+            .hero-right {
+                text-align: center;
+            }
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .deco {
+                display: none;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                background: var(--card);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 2rem 1.5rem;
+                gap: 1.2rem;
+                box-shadow: var(--shadow-hover);
+                border-radius: 0 0 28px 28px;
+            }
+            .hero-right h1 {
+                font-size: 2.8rem;
+            }
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-text {
+                text-align: center;
+            }
+            .about-icons {
+                justify-content: center;
+            }
+            .masonry {
+                column-count: 2;
+            }
+            .collage {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 180px;
+            }
+            .collage-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+            .collage-item:nth-child(2) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .collage-item:nth-child(3) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .collage-item:nth-child(4) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .collage-item:nth-child(5) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .collage-item:nth-child(6) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .social-premium .profile-mini p {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .masonry {
+                column-count: 1;
+            }
+            .hero-right h1 {
+                font-size: 2.2rem;
+            }
+            .loves-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            .social-card {
+                padding: 1rem 0.5rem;
+            }
+            .social-card i {
+                font-size: 1.6rem;
+            }
+            .social-card span {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* =============================================================
+        ✨ UTILIDADES
+        ============================================================= */
+        .glass {
+            background: rgba(250, 247, 243, 0.50);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =============================================================
+    NAVBAR
+    ============================================================= -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo"> Lunayuki0 <span>·</span> Oficial</div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#hero">Inicio</a>
+            <a href="#about">Sobre mí</a>
+            <a href="#gallery">Galería</a>
+            <a href="#videos">Videos</a>
+            <a href="#moments">Momentos</a>
+            <a href="#contact">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- =============================================================
+    HERO
+    ============================================================= -->
+    <section class="hero" id="hero">
+        <div class="hero-left">
+            <img class="hero-img" src="https://i.imgur.com/zF8jiMR.jpeg" alt="" />
+            <span class="deco deco-1">🌻</span>
+            <span class="deco deco-2">☕</span>
+            <span class="deco deco-3">✨</span>
+        </div>
+        <div class="hero-right">
+            <h1>🧸 Lunayuki0 <span>Oficial</span></h1>
+            <div class="hero-tags">Naturaleza • Vintage • Café • Momentos</div>
+            <p class="hero-desc">
+                🍪 Un pequeño rincón de mi mundo, entre días bonitos, momentos grises y todo lo que me hace sentir.ᝰ.ᐟ ྀིྀི.
+            </p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn-primary">Conóceme más</a>
+                <a href="#gallery" class="btn-secondary">Ver galería</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================================
+    SOBRE MÍ
+    ============================================================= -->
+    <section class="about" id="about">
+        <div class="about-wrapper">
+            <img class="about-avatar" src="https://i.imgur.com/LiWVl9c.jpeg" alt=" Lunayuki0 avatar" />
+            <div class="about-text">
+                <h2>☕ Sobre mí</h2>
+                <p>
+                    Soy Lunayuki0 ,me encontrarás entre playlists favoritas, gatos, naturaleza y pequeños momentos que guardo con cariño.
+                </p>
+                <div class="about-icons">
+                    <span>𓃠 Gato negro</span>
+                    <span>🍂 Otoño</span>
+                    <span>𝄞𝄢 Musica</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================================
+    COSAS QUE AMO
+    ============================================================= -->
+    <section class="loves">
+        <h2>𑣲⋆ Cosas que amo</h2>
+        <div class="loves-grid">
+            <div class="love-card">🌿 <span>Naturaleza</span></div>
+            <div class="love-card">/•᷅‎‎•᷄\੭ <span>Gatos</span></div>
+            <div class="love-card">🎧 <span>Playlists favoritas</span></div>
+            <div class="love-card">💃🏻 <span>Bailar</span></div>
+            <div class="love-card">🏐 <span>Voley</span></div>
+            <div class="love-card">📽 <span>Historias favoritas</span></div>
+            <div class="love-card">✦ <span>Pequeños momentos</span></div>
+        </div>
+    </section>
+
+    <!-- =============================================================
+    GALERÍA MASONRY
+    ============================================================= -->
+    <section class="gallery" id="gallery">
+        <h2>[◉°] Galería <span>· Momentos</span></h2>
+        <div class="masonry">
+            <div class="masonry-item"><img src="https://i.imgur.com/YhrB49F.jpeg" alt="Selfie" /><span class="masonry-cat">✌︎㋡ Selfie</span></div>
+            <div class="masonry-item"><img src="https://i.imgur.com/wHBL9hC.jpeg" alt="Naturaleza" /><span class="masonry-cat">🍃 Naturaleza</span></div>
+            <div class="masonry-item"><img src="https://i.imgur.com/1QIi3jk.jpeg" alt="Outfit" /><span class="masonry-cat">🧥👜Outfit</span></div>
+            <div class="masonry-item"><img src="https://i.imgur.com/zgZod8W.jpeg" alt="Atardecer" /><span class="masonry-cat">🌄Atardecer</span></div>
+            <div class="masonry-item"><img src="https://i.imgur.com/XVTLxj1.jpeg" alt="Música" /><span class="masonry-cat">◀ 𓊕 ▶ Música</span></div>
+            <div class="masonry-item"><img src="https://i.imgur.com/3Ad7zI3.jpeg" alt="Flores" /><span class="masonry-cat">°❀࿔ Flores</span></div>
+            <div class="masonry-item"><img src="https://i.imgur.com/qIPjFOI.jpeg" alt="Ship" /><span class="masonry-cat">❦ Ship</span></div>
+            <div class="masonry-item"><img src="https://i.imgur.com/QcbzWAr.jpeg" alt="Ciudad" /><span class="masonry-cat">🏙 Ciudad</span></div>
+        </div>
+    </section>
+
+    <!-- =============================================================
+    VIDEOS DESTACADOS (PLAYLISTS FAVORITAS)
+    ============================================================= -->
+    <section class="videos" id="videos">
+        <h2>🎧 Playlists favoritas</h2>
+        <div class="videos-grid">
+            <div class="video-card">
+                <div class="video-thumb">
+                    <iframe src="https://www.youtube.com/embed/ssIiBm0ORuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>☕ Café & Momentos</h4>
+                    <p>🍂 Música para pensar</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-thumb">
+                    <iframe src="https://www.youtube.com/embed/NomGdaA-g0w?si=G69ssPJr9EL7q_bX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>𝄞𝄢 Indie & R&B</h4>
+                    <p>🤎 Sonidos favoritos</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-thumb">
+                    <iframe src="https://www.youtube.com/embed/_aelrhBsIRE?si=o9-_yzGGXsTOreq1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>🖤 Nostalgia</h4>
+                    <p>ʄₒᵣₑᵥₑᵣᨖ Canciones que se quedan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================================
+    MOMENTOS Y CAFÉ (COLLAGE)
+    ============================================================= -->
+    <section class="moments" id="moments">
+        <h2>͙͘͡★ Pequeños momentos</h2>
+        <div class="collage">
+            <div class="collage-item"><img src=" https://i.imgur.com/BOiWtH9.jpeg" alt="Café" /></div>
+            <div class="collage-item"><img src=" https://i.imgur.com/7CS2vQx.jpeg " alt="Libro" /></div>
+            <div class="collage-item"><img src=" https://i.imgur.com/rs9h7SO.jpeg " alt="Naturaleza" /></div>
+            <div class="collage-item"><img src="https://i.imgur.com/RAYt4ly.jpegalt="Fotografía" /></div>
+            <div class="collage-item"><img src=" https://i.imgur.com/k1ORqHa.jpeg " alt="Rincón" /></div>
+            <div class="collage-item"><img src="https://i.imgur.com/9EYps4p.jpeg" alt="Aesthetic" /></div>
+            <div class="collage-item"><img src="https://i.imgur.com/ISMjbw3.jpeg" alt="Aesthetic" /></div>
+
+        </div>
+    </section>
+
+    <!-- =============================================================
+    REDES SOCIALES (TODOS TUS ENLACES ACTUALIZADOS)
+    ============================================================= -->
+    <section class="social-premium" id="social">
+        <div class="profile-mini">
+            <img src=" https://i.imgur.com/LiWVl9c.jpeg " alt=" Lunayuki0" />
+            <p>Acompáñame en mis pequeños momentos favoritos 🍂☕.</p>
+        </div>
+        <div class="social-grid">
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@lunayuki0" class="social-card" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+                <small> Lunayuki0 </small>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/lunai_yuki0?srtk=MzNlNGNkZWQ4Mg==" class="social-card" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+                <small> Lunayuki0</small>
+            </a>
+            <!-- Telegram -->
+            <a href="https://t.me/mi_01lo" class="social-card" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+                <small> Lunayuki0</small>
+            </a>
+            <!-- Pinterest -->
+            <a href="https://pin.it/2ksXqvi5Y" class="social-card" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-pinterest"></i>
+                <span>Pinterest</span>
+                <small> Lunayuki0</small>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1DjrrHNqCX/" class="social-card" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+                <small> Lunayuki0</small>
+            </a>
+        </div>
+    </section>
+
+    <!-- =============================================================
+    CONTACTO (CON FORMSPREE)
+    ============================================================= -->
+    <section class="contact" id="contact">
+        <h2>📩 Contáctame</h2>
+        <p>¿Quieres colaborar o decirme algo? Escríbeme.</p>
+        <form id="contactForm" action="https://formspree.io/f/xeebqbkp" method="POST">
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+            <input type="email" name="email" placeholder="Tu correo electrónico" required />
+            <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <button type="submit">Enviar mensaje</button>
+        </form>
+        <p id="formResponse" style="margin-top:1rem;font-weight:500;color:var(--gold);"></p>
+    </section>
+
+    <!-- =============================================================
+    FOOTER
+    ============================================================= -->
+    <footer>
+        <p>❀ Hecho con ღ para compartir recuerdos, música y momentos · <a href="#hero"> Lunayuki0 Oficial</a></p>
+    </footer>
+
+    <!-- =============================================================
+    SCRIPT: NAV TOGGLE + CONTACTO + SCROLL SHADOW
+    ============================================================= -->
+    <script>
+        // Navbar toggle para mobile
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            links.classList.toggle('open');
+            toggle.innerHTML = links.classList.contains('open') ?
+                '<i class="fas fa-times"></i>' :
+                '<i class="fas fa-bars"></i>';
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                links.classList.remove('open');
+                toggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Sombra en navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = this.querySelector('input[type="text"]').value || 'amigo';
+            document.getElementById('formResponse').textContent =
+                '¡Gracias ' + nombre + '! Tu mensaje ha sido enviado. 💛';
+            this.reset();
+        });
+    </script>
+</body>
+</html>
